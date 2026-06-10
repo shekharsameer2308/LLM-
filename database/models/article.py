@@ -16,6 +16,7 @@ class Article(Base):
     url = Column(String(1000), unique=True, nullable=False, index=True)
     industry = Column(String(100), nullable=False, index=True)
     published_date = Column(DateTime, nullable=False, index=True)
+    topic_name = Column(String(255), nullable=True, index=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     # Relationships

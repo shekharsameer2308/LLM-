@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from database.connection import get_db
 from backend.api.routes.articles import router as articles_router
+from backend.api.routes.analytics import router as analytics_router
 
 app = FastAPI(
     title="Scout API",
@@ -12,6 +13,7 @@ app = FastAPI(
 
 # Register routes
 app.include_router(articles_router, prefix="/api")
+app.include_router(analytics_router, prefix="/api")
 
 @app.get("/health")
 async def health_check():

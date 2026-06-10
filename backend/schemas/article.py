@@ -12,6 +12,7 @@ class ArticleBase(BaseModel):
     url: str
     industry: str
     published_date: datetime
+    topic_name: Optional[str] = None
 
 class ArticleCreate(ArticleBase):
     pass
