@@ -9,7 +9,7 @@ services:
   # 2. FastAPI Backend Web Service
   - type: web
     name: scout-backend
-    env: docker
+    runtime: docker
     dockerfilePath: docker/Dockerfile.backend
     context: .
     plan: free
@@ -31,7 +31,7 @@ services:
   # 3. Streamlit Frontend Web Service
   - type: web
     name: scout-frontend
-    env: docker
+    runtime: docker
     dockerfilePath: docker/Dockerfile.frontend
     context: .
     plan: free
@@ -46,12 +46,12 @@ services:
   # 4. Scheduled Pipeline Runner (Cron Job)
   - type: cron
     name: scout-pipeline
-    env: docker
+    runtime: docker
     dockerfilePath: docker/Dockerfile.backend
     context: .
     schedule: "0 0 * * *" # Runs daily at midnight UTC
     plan: free
-    startCommand: python -m data_pipeline.scheduler.pipeline_runner --run-topics
+    dockerCommand: python -m data_pipeline.scheduler.pipeline_runner --run-topics
     envVars:
       - key: DATABASE_URL
         fromDatabase:
