@@ -1,12 +1,5 @@
-databases:
-  # 1. PostgreSQL Database Instance
-  - name: scout-postgres
-    databaseName: scout_db
-    user: scout
-    plan: free
-
 services:
-  # 2. FastAPI Backend Web Service
+  # 1. FastAPI Backend Web Service (SQLite default)
   - type: web
     name: scout-backend
     runtime: docker
@@ -16,9 +9,7 @@ services:
     port: 8000
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: scout-postgres
-          property: connectionString
+        value: sqlite:///scout_db.db
       - key: NEWSAPI_KEY
         sync: false
       - key: GEMINI_API_KEY
@@ -28,7 +19,7 @@ services:
       - key: QDRANT_API_KEY
         sync: false
 
-  # 3. Streamlit Frontend Web Service
+  # 2. Streamlit Frontend Web Service
   - type: web
     name: scout-frontend
     runtime: docker
