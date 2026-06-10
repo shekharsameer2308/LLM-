@@ -38,10 +38,7 @@ services:
     port: 8501
     envVars:
       - key: API_URL
-        fromService:
-          name: scout-backend
-          type: web
-          property: url
+        value: http://scout-backend:8000
 
   # 4. Scheduled Pipeline Runner (Cron Job)
   - type: cron
