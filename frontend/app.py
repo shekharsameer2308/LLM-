@@ -107,10 +107,15 @@ with col2:
     """, unsafe_allow_html=True)
 
 st.markdown("""
-<div class="card" style="min-height: auto;">
+<div class="card" style="min-height: auto; margin-bottom: 20px;">
     <h3>🛍️ Product Intelligence & Market Analysis</h3>
     <p>Search any custom product class (e.g. mobile, laptop, solar panel) to fetch live internet feeds, identify active competitor manufacturers, and compile dynamic SWOT reports.</p>
     <div class="card-nav">👈 Select <b>5 Product Analysis</b> in the sidebar to scrape and analyze products.</div>
+</div>
+<div class="card" style="min-height: auto;">
+    <h3>Project Ingestion Pipeline</h3>
+    <p>Search and ingest live articles on any custom topic or project directly into the Scout database and vector index, running the full NLP pipeline automatically.</p>
+    <div class="card-nav">👈 Select <b>6 Project Ingestion</b> in the sidebar to ingest and analyze new data.</div>
 </div>
 """, unsafe_allow_html=True)
 
